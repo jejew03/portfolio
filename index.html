@@ -66,10 +66,30 @@
             text-decoration: none;
         }
 
+        @media (max-width: 768px) {
         .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
+            position: fixed;
+            top: 60px; /* Height of navbar */
+            left: 0;
+            width: 100vw;
+            background: var(--pure-white);
+            flex-direction: column;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-color);
+            transform: translateY(-120%);
+            transition: transform 0.3s ease;
+            gap: 1rem;
+            text-align: center;
+            z-index: 1001; /* Above overlay */
+        }
+
+        .nav-menu.active {
+            transform: translateY(0);
+        }
+
+        .nav-toggle {
+            display: block;
+        }
         }
 
         .nav-link {
