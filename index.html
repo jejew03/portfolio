@@ -680,17 +680,18 @@
         @media (max-width: 768px) {
             .nav-menu {
                 position: fixed;
-                top: 100%;
+                top: 60px; /* hauteur de la navbar */
                 left: 0;
-                width: 100%;
+                width: 100vw;
                 background: var(--pure-white);
                 flex-direction: column;
                 padding: 2rem 0;
                 border-top: 1px solid var(--border-color);
-                transform: translateY(-100%);
+                transform: translateY(-120%);
                 transition: transform 0.3s ease;
                 gap: 1rem;
                 text-align: center;
+                z-index: 1001;
             }
 
             .nav-menu.active {
@@ -757,25 +758,23 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="mobile-overlay">
-                <a href="#hero" class="nav-brand">RTJ</a>
-                <ul class="nav-menu">
-                    <li><a href="#hero" class="nav-link active">Accueil</a></li>
-                    <li><a href="#experience" class="nav-link">Expérience</a></li>
-                    <li><a href="#formation" class="nav-link">Formation</a></li>
-                    <li><a href="#competences" class="nav-link">Compétences</a></li>
-                    <li><a href="#langues" class="nav-link">Langues</a></li>
-                    <li><a href="#atouts" class="nav-link">Atouts</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-                <button class="nav-toggle" aria-label="Ouvrir le menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
+            <a href="#hero" class="nav-brand">RTJ</a>
+            <ul class="nav-menu">
+                <li><a href="#hero" class="nav-link active">Accueil</a></li>
+                <li><a href="#experience" class="nav-link">Expérience</a></li>
+                <li><a href="#formation" class="nav-link">Formation</a></li>
+                <li><a href="#competences" class="nav-link">Compétences</a></li>
+                <li><a href="#langues" class="nav-link">Langues</a></li>
+                <li><a href="#atouts" class="nav-link">Atouts</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Ouvrir le menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-       
+        <div class="mobile-overlay"></div>
     </nav>
 
     <div class="container">
