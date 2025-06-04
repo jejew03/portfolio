@@ -119,7 +119,30 @@
             margin: 5px 0;
             transition: 0.3s;
         }
+        .mobile-overlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        z-index: 999;
+        transition: opacity 0.3s;
+        }
 
+        /* Show overlay when menu is active */
+        .mobile-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Hamburger animation */
+        .nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
         /* Main Container */
         .container {
             max-width: 1200px;
@@ -719,12 +742,13 @@
                 <li><a href="#atouts" class="nav-link">Atouts</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <button class="nav-toggle">
+            <button class="nav-toggle" aria-label="Ouvrir le menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
         </div>
+        <div class="mobile-overlay"></div>
     </nav>
 
     <div class="container">
@@ -917,63 +941,73 @@
                 "Polyvalence et adaptabilité face aux nouvelles technologies"
             ]
         };
+        // Contact form submissiondocument.addEventListener('DOMContentLoaded', function() {
+    const navbar = document.querySelector('.navbar');
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const overlay = document.querySelector('.mobile-overlay');
 
-        // Navigation functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const navbar = document.querySelector('.navbar');
-            const navToggle = document.querySelector('.nav-toggle');
-            const navMenu = document.querySelector('.nav-menu');
-            const navLinks = document.querySelectorAll('.nav-link');
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
 
-            // Navbar scroll effect
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            });
+    // Mobile menu toggle
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
+        overlay.classList.toggle('active');
+    });
 
-            // Mobile menu toggle
-            navToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-            });
+    // Close menu when overlay is clicked
+    overlay.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+        overlay.classList.remove('active');
+    });
 
-            // Smooth scroll and active link
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const targetId = link.getAttribute('href');
-                    const targetSection = document.querySelector(targetId);
-                    
-                    if (targetSection) {
-                        targetSection.scrollIntoView({ behavior: 'smooth' });
-                        navMenu.classList.remove('active');
-                    }
-                });
-            });
+    // Smooth scroll and active link
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
 
-            // Update active nav link on scroll
-            window.addEventListener('scroll', () => {
-                let current = '';
-                document.querySelectorAll('section').forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    if (pageYOffset >= sectionTop - 200) {
-                        current = section.getAttribute('id');
-                    }
-                });
-
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${current}`) {
-                        link.classList.add('active');
-                    }
-                });
-            });
-
-            // Initialize sections loading
-            initializeSectionsLoading();
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+                overlay.classList.remove('active');
+            }
         });
+    });
+
+    // Update active nav link on scroll
+    window.addEventListener('scroll', () => {
+        let current = '';
+        document.querySelectorAll('section').forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= sectionTop - 200) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+    // Initialize sections loading
+    initializeSectionsLoading();
+
 
         // AJAX-like section loading with delays
         function initializeSectionsLoading() {
