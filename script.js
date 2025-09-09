@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Contact form handling
+    // Contact form handling with EmailJS
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
@@ -197,23 +197,29 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Get form data
             const formData = new FormData(this);
-            const data = {
-                name: formData.get('name'),
-                email: formData.get('email'),
+            const templateParams = {
+                from_name: formData.get('name'),
+                from_email: formData.get('email'),
                 subject: formData.get('subject'),
-                message: formData.get('message')
+                message: formData.get('message'),
+                to_email: 'contact@tsilavo-ralaivao.dev' // Votre email de réception
             };
             
-            // Simulate form submission (replace with your actual form handling)
-            setTimeout(() => {
-                // Simulate success
-                showMessage('Message envoyé avec succès ! Je vous répondrai dans les plus brefs délais.', 'success');
-                this.reset();
-                
-                // Reset button
-                submitButton.disabled = false;
-                submitButton.innerHTML = originalText;
-            }, 2000);
+            // Send email using EmailJS
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                .then(function(response) {
+                    console.log('Email envoyé avec succès!', response.status, response.text);
+                    showMessage('Message envoyé avec succès ! Je vous répondrai dans les plus brefs délais.', 'success');
+                    contactForm.reset();
+                }, function(error) {
+                    console.error('Erreur lors de l\'envoi:', error);
+                    showMessage('Erreur lors de l\'envoi du message. Veuillez réessayer ou me contacter directement.', 'error');
+                })
+                .finally(function() {
+                    // Reset button state
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalText;
+                });
         });
     }
 

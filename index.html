@@ -3,6 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), speaker=(), vibrate=(), fullscreen=(self)">
+    
+    <!-- SEO and Security -->
+    <meta name="robots" content="index, follow, noarchive, nosnippet, noimageindex">
+    <meta name="author" content="Tsilavo Jedidia RALAIVAO">
+    <meta name="description" content="Portfolio sécurisé de Tsilavo Jedidia RALAIVAO - Développeur Web & Designer UI/UX">
+    
     <title>Tsilavo Jedidia RALAIVAO - Web Developer</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=SF+Pro+Display:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
@@ -40,7 +54,7 @@
     </nav>
 
     <!-- GitHub Style Hero Section -->
-    <section id="hero" class="hero">
+        <section id="hero" class="hero">
         <div class="hero-container">
             <div class="profile-info">
                 <div class="profile-badge">
@@ -75,7 +89,7 @@
 
             <div class="profile-card">
                 <div class="profile-avatar">
-                    <div class="avatar-placeholder">TR</div>
+                    <img src="tsilavo-profile.jpg" alt="Tsilavo Jedidia RALAIVAO" class="avatar-image">
                     <div class="status-indicator"></div>
                 </div>
                 
@@ -93,9 +107,9 @@
                         <span class="stat-label">Technologies</span>
                     </div>
                 </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- About Section with GitHub Cards -->
     <section id="about" class="section">
@@ -107,7 +121,7 @@
 
             <div class="github-grid">
                 <div class="github-card">
-                    <div class="card-header">
+                        <div class="card-header">
                         <h3>Mon profil</h3>
                         <span class="card-emoji">👨‍💻</span>
                     </div>
@@ -150,12 +164,12 @@
                                 <span class="language-name">Anglais</span>
                                 <span class="language-level intermediate">Niveau C1</span>
                             </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
                 <div class="github-card">
-                    <div class="card-header">
+                        <div class="card-header">
                         <h3>Contact rapide</h3>
                         <span class="card-emoji">📱</span>
                     </div>
@@ -274,9 +288,9 @@
                     <div class="category-header">
                         <h3>Frontend</h3>
                         <span class="category-icon">🎨</span>
-                    </div>
-                    <div class="skills-list">
-                        <div class="skill-item">
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item">
                             <div class="skill-info">
                                 <span class="skill-name">React.js</span>
                                 <span class="skill-percentage">85%</span>
@@ -284,8 +298,8 @@
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 85%"></div>
                             </div>
-                        </div>
-                        <div class="skill-item">
+                            </div>
+                            <div class="skill-item">
                             <div class="skill-info">
                                 <span class="skill-name">Vue.js</span>
                                 <span class="skill-percentage">80%</span>
@@ -293,8 +307,8 @@
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 80%"></div>
                             </div>
-                        </div>
-                        <div class="skill-item">
+                            </div>
+                            <div class="skill-item">
                             <div class="skill-info">
                                 <span class="skill-name">HTML/CSS</span>
                                 <span class="skill-percentage">95%</span>
@@ -307,13 +321,13 @@
                             <div class="skill-info">
                                 <span class="skill-name">JavaScript</span>
                                 <span class="skill-percentage">88%</span>
-                            </div>
+                    </div>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 88%"></div>
                             </div>
                         </div>
                     </div>
-                </div>
+                        </div>
 
                 <div class="skill-category-card">
                     <div class="category-header">
@@ -325,11 +339,11 @@
                             <div class="skill-info">
                                 <span class="skill-name">PHP Laravel</span>
                                 <span class="skill-percentage">90%</span>
-                            </div>
+                        </div>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 90%"></div>
                             </div>
-                        </div>
+                                </div>
                         <div class="skill-item">
                             <div class="skill-info">
                                 <span class="skill-name">PHP CodeIgniter</span>
@@ -343,11 +357,11 @@
                             <div class="skill-info">
                                 <span class="skill-name">NEST.js</span>
                                 <span class="skill-percentage">75%</span>
-                            </div>
+                    </div>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 75%"></div>
                             </div>
-                        </div>
+                                </div>
                         <div class="skill-item">
                             <div class="skill-info">
                                 <span class="skill-name">Java Spring Boot</span>
@@ -370,10 +384,10 @@
                             <div class="skill-info">
                                 <span class="skill-name">MySQL</span>
                                 <span class="skill-percentage">85%</span>
-                            </div>
+            </div>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 85%"></div>
-                            </div>
+                </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-info">
@@ -383,10 +397,10 @@
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 80%"></div>
                             </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-
+                    
                 <div class="skill-category-card">
                     <div class="category-header">
                         <h3>Outils & Design</h3>
@@ -418,7 +432,7 @@
                             </div>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 80%"></div>
-                            </div>
+                    </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-info">
@@ -514,10 +528,10 @@
                     <p class="formation-description">
                         Série C - Mathématiques et Sciences Physiques, base solide pour les études en informatique.
                     </p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- Contact Section -->
     <footer id="contact" class="contact-section">
@@ -541,7 +555,7 @@
                                 </div>
                                 <div class="contact-details">
                                     <span class="contact-label">Email</span>
-                                    <span class="contact-value">contact@tsilavo-ralaivao.dev</span>
+                                    <span class="contact-value">jedidiaralaivao01@gmail.com</span>
                                 </div>
                             </div>
                             <div class="contact-item">
@@ -567,7 +581,7 @@
                                     <span class="contact-value">Madagascar</span>
                                 </div>
                             </div>
-                        </div>
+    </div>
 
                         <div class="social-links">
                             <a href="https://github.com/jejew03" class="social-link">
@@ -584,48 +598,15 @@
                             </a>
                         </div>
                     </div>
+        </div>
+        </div>
 
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Nom complet</label>
-                            <input type="text" id="name" name="name" class="form-input" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" id="email" name="email" class="form-input" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject" class="form-label">Sujet</label>
-                            <input type="text" id="subject" name="subject" class="form-input" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea id="message" name="message" class="form-textarea" required 
-                                      placeholder="Décrivez votre projet ou votre demande..."></textarea>
-                        </div>
-                        
-                        <button type="submit" class="form-submit">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="22" y1="2" x2="11" y2="13"/>
-                                <polygon points="22,2 15,22 11,13 2,9"/>
-                            </svg>
-                            Envoyer le message
-                        </button>
-                        
-                        <div id="formMessage" class="form-message" style="display: none;"></div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
+        <div class="footer-bottom">
                 <p>© 2025 Tsilavo Jedidia RALAIVAO - Tous droits réservés</p>
             </div>
-        </div>
+    </div>
     </footer>
 
     <script src="script.js"></script>
-</body>
-</html>
+    </body>
+    </html>
