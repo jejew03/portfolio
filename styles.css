@@ -898,6 +898,31 @@ body {
     padding: var(--github-space-20) 0;
 }
 
+.contact-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--github-space-4);
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: var(--github-space-12);
+}
+
+.contact-header h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--github-fg-default);
+    margin-bottom: var(--github-space-3);
+}
+
+.contact-header p {
+    font-size: 18px;
+    color: var(--github-fg-muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -908,7 +933,8 @@ body {
 
 @media (min-width: 768px) {
     .contact-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
+        max-width: 600px;
     }
 }
 
@@ -917,13 +943,15 @@ body {
     border: 1px solid var(--github-border-default);
     border-radius: var(--github-borderRadius-large);
     padding: var(--github-space-6);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .contact-info-card h3 {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     color: var(--github-fg-default);
-    margin-bottom: var(--github-space-5);
+    margin-bottom: var(--github-space-6);
+    text-align: center;
 }
 
 .contact-items {
@@ -937,32 +965,43 @@ body {
     display: flex;
     align-items: center;
     gap: var(--github-space-3);
-    padding: var(--github-space-3);
+    padding: var(--github-space-4);
     background-color: var(--github-canvas-default);
     border: 1px solid var(--github-border-default);
     border-radius: var(--github-borderRadius-medium);
+    transition: all 0.2s ease;
+}
+
+.contact-item:hover {
+    background-color: var(--github-canvas-subtle);
+    border-color: var(--github-accent-emphasis);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .contact-icon {
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     background-color: var(--github-accent-emphasis);
     border-radius: var(--github-borderRadius-medium);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    transition: all 0.2s ease;
 }
 
 .contact-icon svg {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     stroke: var(--github-fg-on-emphasis);
 }
 
 .contact-details {
     display: flex;
     flex-direction: column;
+    gap: var(--github-space-1);
+    flex: 1;
 }
 
 .contact-label {
@@ -974,21 +1013,24 @@ body {
 }
 
 .contact-value {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
     color: var(--github-fg-default);
+    word-break: break-all;
 }
 
-.social-links {
+.contact-info-card .social-links {
     display: flex;
     gap: var(--github-space-3);
+    justify-content: center;
+    margin-top: var(--github-space-4);
 }
 
-.social-link {
+.contact-info-card .social-link {
     display: flex;
     align-items: center;
     gap: var(--github-space-2);
-    padding: var(--github-space-2) var(--github-space-3);
+    padding: var(--github-space-3) var(--github-space-4);
     background-color: var(--github-canvas-default);
     border: 1px solid var(--github-border-default);
     border-radius: var(--github-borderRadius-medium);
@@ -996,13 +1038,17 @@ body {
     text-decoration: none;
     font-size: 14px;
     font-weight: 500;
-    transition: all 0.2s;
+    transition: all 0.2s ease;
+    flex: 1;
+    justify-content: center;
 }
 
-.social-link:hover {
+.contact-info-card .social-link:hover {
     background-color: var(--github-accent-emphasis);
     border-color: var(--github-accent-emphasis);
     color: var(--github-fg-on-emphasis);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Contact Form */
@@ -1210,6 +1256,26 @@ body {
     
     .social-links {
         flex-direction: column;
+    }
+    
+    .contact-header h2 {
+        font-size: 28px;
+    }
+    
+    .contact-header p {
+        font-size: 16px;
+    }
+    
+    .contact-info-card {
+        padding: var(--github-space-4);
+    }
+    
+    .contact-info-card .social-links {
+        flex-direction: column;
+    }
+    
+    .contact-info-card .social-link {
+        flex: none;
     }
 }
 
